@@ -8,9 +8,9 @@ namespace MailSender
 {
     public interface MailSenderInterface
     {
-        public MailSenderInterface(string apikey);
-        public bool SendMail(Mail mail);
-        public bool SendTestMail();
-        public bool TestKey();
+        bool SendMail(Mail mail);
+        bool SendTestMail();
+        bool TestKey();
+        Object SendersList();
     }
 }

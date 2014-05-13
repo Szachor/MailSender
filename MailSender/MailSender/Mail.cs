@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace MailSender
 {
-    class Mail
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Mail
     {
         private List<String> tos { get; set; }
         private String content { get; set; }
         private String subject { get; set; }
         private bool html { get; set; }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="to"></param>
+        /// <param name="subject"></param>
+        /// <param name="content"></param>
+        /// <param name="html"></param>
         public Mail(String to, String subject, String content = "", bool html = false) : this(subject, content, html)
         {
             tos.Add(to);
