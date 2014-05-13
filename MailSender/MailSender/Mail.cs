@@ -8,10 +8,10 @@ namespace MailSender
 {
     class Mail
     {
-        private List<String> tos;
-        private String content;
-        private String subject;
-        private bool html;
+        private List<String> tos { get; set; }
+        private String content { get; set; }
+        private String subject { get; set; }
+        private bool html { get; set; }
 
 
         public Mail(String to, String subject, String content = "", bool html = false) : this(subject, content, html)

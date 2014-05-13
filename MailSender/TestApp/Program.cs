@@ -12,7 +12,8 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            MailSenderInterface m = new MandrillMailSenderClass("jakies api ki");
+            string apikey = "52DOhihllN57eVUmfMcCQg";
+            MailSenderInterface m = new MandrillMailSenderClass(apikey);
             m.TestKey();
         }
     }

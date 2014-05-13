@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MailSender;
+using RestSharp;
 
 
 namespace MandrillMailSender
@@ -14,5 +15,8 @@ namespace MandrillMailSender
         public bool SendMail(Mail mail);
         public bool SendTestMail();
         public bool TestKey();
+
+        private string MandrillUrl = "https://mandrillapp.com/api/1.0/";
+
     }
 }
