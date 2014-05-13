@@ -44,17 +44,28 @@ namespace MandrillMailSender
         public Object SendersList()
         {
             //string urlPost = url + "senders/list.json";
-            string post;
+            string post="";
             RestRequest request = new RestRequest("senders/list.json");
             request.RequestFormat = DataFormat.Json;
-            request.AddBody(new { key = this.apikey});
+            //request.AddBody(new { key = this.apikey });
+            
+            /*post += '{';
+            post += "\"key\":";
+            post += '"';
+            post += apikey;
+            post += '"';
+            post += '}';
+            */
+            //request.AddBody(post);
             //return GetJsonResponse(urlPost, request);
+            request.AddObject(new { key = this.apikey });
             return GetJsonResponse(request);
         }
         private JObject GetJsonResponse(RestRequest request)
         {
             RestClient client = new RestClient(url);
             IRestResponse response = client.Execute(request);
+            response.Content = "{\"list\":" + response.Content + '}';
             JObject json = JObject.Parse(response.Content);
             return json;
         }
