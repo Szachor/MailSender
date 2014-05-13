@@ -37,27 +37,18 @@ namespace MandrillMailSender
             url = "https://mandrillapp.com/api/1.0/";
         }
 
-        public bool SendMail(Mail mail) { return false; }
-        public bool SendTestMail() { return false; }
-        public bool TestKey() { return false; }
+        public Object SendMail(Mail mail) 
+        { 
+
+        }
+        public Object SendTestMail() { return false; }
+        public Object TestKey() { return false; }
 
         public Object SendersList()
         {
-            //string urlPost = url + "senders/list.json";
             string post="";
             RestRequest request = new RestRequest("senders/list.json");
             request.RequestFormat = DataFormat.Json;
-            //request.AddBody(new { key = this.apikey });
-            
-            /*post += '{';
-            post += "\"key\":";
-            post += '"';
-            post += apikey;
-            post += '"';
-            post += '}';
-            */
-            //request.AddBody(post);
-            //return GetJsonResponse(urlPost, request);
             request.AddObject(new { key = this.apikey });
             return GetJsonResponse(request);
         }
