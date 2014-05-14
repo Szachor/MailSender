@@ -8,9 +8,9 @@ namespace MailSender
 {
     public interface MailSenderInterface
     {
-        bool SendMail(Mail mail);
-        bool SendTestMail();
-        bool TestKey();
+        Object SendMail(Mail mail);
+        Object SendTestMail(Mail m);
+        Object TestKey();
         Object SendersList();
     }
 }
