@@ -17,14 +17,21 @@ namespace UnitTestForMandrillMailSender
         [ClassInitialize()]
         public static void iterationClassInitialize(TestContext context)
         {
-            mail = new Mail("Test mail", "Test body", false);
-            apiKey = "F3oFPMyvxI2JQyEpIydqFw";
+            mail = new Mail("testmailsender4@gmail.com","Test mail", "Test body", false);
+            apiKey = "Yt2RkGJrlFG6LD3BanmsWw";
             sender = new MandrillMailSenderClass(apiKey);
         }
         [TestMethod]
         public void TestMandrillSendersList()
         {
             JObject result = (JObject)sender.SendersList();
+            Debug.WriteLine(result.ToString());
+            Assert.AreNotEqual("error", result["status"]);
+        }
+        [TestMethod]
+        public void TestMandrillMailSend()
+        {
+            JObject result = (JObject)sender.SendMail(mail);
             Debug.WriteLine(result.ToString());
             Assert.AreNotEqual("error", result["status"]);
         }

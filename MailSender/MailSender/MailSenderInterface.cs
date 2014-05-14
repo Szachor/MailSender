@@ -9,7 +9,7 @@ namespace MailSender
     public interface MailSenderInterface
     {
         Object SendMail(Mail mail);
-        Object SendTestMail();
+        Object SendTestMail(Mail m);
         Object TestKey();
         Object SendersList();
     }
