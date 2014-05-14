@@ -12,9 +12,12 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            string apikey = "52DOhihllN57eVUmfMcCQg";
+            string apikey = "F3oFPMyvxI2JQyEpIydqFw";
             MailSenderInterface m = new MandrillMailSenderClass(apikey);
             m.TestKey();
+            bool html = false;
+            Mail mm = new Mail("to", "content bla", html);
+            m.SendMail(mm);
         }
     }
 }

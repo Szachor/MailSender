@@ -37,24 +37,70 @@ namespace MandrillMailSender
             url = "https://mandrillapp.com/api/1.0/";
         }
 
-        public bool SendMail(Mail mail) { return false; }
+        public bool SendMail(Mail mail)
+        {
+            RestRequest request = new RestRequest("/messages/send.json");
+            request.RequestFormat = DataFormat.Json;
+            request.AddHeader("Content-Type", "json");
+            //request.AddObject(new { key = this.apikey });
+            string json = @"{
+    ""key"": ""F3oFPMyvxI2JQyEpIydqFw"",
+    ""message"": {
+        ""text"": ""Example text content"",
+        ""subject"": ""example subject"",
+        ""to"": [
+            {
+                ""email"": ""m.farfulowska@gmail.com""
+            }
+        ],
+        ""attachments"": [
+            {
+            }
+        ]
+    }
+}";
+
+            string[,] array2D = new string[,] { { "text", "Example text content" }, 
+            { "subject", "example subject", }, 
+            { "from_name", "Example Name" }, { "to", "m.farfulowska@gmail.com" } };
+            JObject j = JObject.Parse(json);
+
+            //request.AddBody(request.JsonSerializer.Serialize(new { key = this.Apikey, message = j }));
+            request.AddParameter("key", this.Apikey);
+            //request.AddParameter("message", array2D);
+            request.AddParameter("subscriber", "m.farfulowska@gmail.com");
+            request.AddParameter("subject", "jakis temat");
+            request.AddParameter("text", "tutaj tresc");
+
+            //request.AddBody(new { key = this.apikey, message = j });
+            //request.AddParameter("key", apikey);
+            //request.AddParameter("text", "Example text content");
+            //request.AddParameter("subject", "example subject");
+            //request.AddParameter("to", "m.farfulowska@gmail.com");                      
+            
+            RestClient client = new RestClient(url);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine("request");
+            Console.WriteLine(response.Content);
+            return true;
+        }
+
         public bool SendTestMail() { return false; }
         public bool TestKey() { return false; }
-
+        
         public Object SendersList()
         {
-            // string urlPost = url + "senders/list.json";
-            string post;
+            string post = "";
             RestRequest request = new RestRequest("senders/list.json");
             request.RequestFormat = DataFormat.Json;
-            request.AddBody(new { key = this.apikey });
-            // return GetJsonResponse(urlPost, request);
+            request.AddObject(new { key = this.apikey });
             return GetJsonResponse(request);
         }
         private JObject GetJsonResponse(RestRequest request)
         {
             RestClient client = new RestClient(url);
             IRestResponse response = client.Execute(request);
+            response.Content = "{\"list\":" + response.Content + '}';
             JObject json = JObject.Parse(response.Content);
             return json;
         }
