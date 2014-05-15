@@ -1,0 +1,9 @@
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\obj\Debug\MailSender.csprojResolveAssemblyReference.cache
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\bin\Debug\MailSender.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\bin\Debug\MailSender.pdb
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\bin\Debug\RestSharp.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\bin\Debug\RestSharp.xml
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\obj\Debug\MailSender.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MailSender\obj\Debug\MailSender.pdb

@@ -1,0 +1,11 @@
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\obj\Debug\MandrillMailSender.csprojResolveAssemblyReference.cache
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\MandrillMailSender.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\MandrillMailSender.pdb
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\MailSender.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\RestSharp.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\MailSender.pdb
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\bin\Debug\RestSharp.xml
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\obj\Debug\MandrillMailSender.dll
+C:\Users\Chrystian\Source\Repos\MailSender\MandrillMailSender\obj\Debug\MandrillMailSender.pdb

@@ -1,0 +1,14 @@
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\TestApp.exe.config
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\TestApp.exe
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\TestApp.pdb
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\MailSender.dll
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\MandrillMailSender.dll
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\RestSharp.dll
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\MailSender.pdb
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\MandrillMailSender.pdb
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\RestSharp.xml
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\obj\Debug\TestApp.exe
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\obj\Debug\TestApp.pdb
