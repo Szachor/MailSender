@@ -8,9 +8,12 @@ namespace MailSender
 {
     public interface MailSenderInterface
     {
-        Object SendMail(Mail mail);
-        Object SendTestMail(Mail m);
-        Object TestKey();
-        Object SendersList();
+        #region methods
+        ResponseInterface SendMail(MailInterface mail);
+        bool ping();
+        bool TestKey(string apikey);
+        ResponseInterface SendersList();
+        #endregion
+
     }
 }

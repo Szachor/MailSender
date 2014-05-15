@@ -4,6 +4,7 @@ using MandrillMailSender;
 using MailSender;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+
 namespace UnitTestForMandrillMailSender
 {
     [TestClass]
@@ -24,16 +25,23 @@ namespace UnitTestForMandrillMailSender
         [TestMethod]
         public void TestMandrillSendersList()
         {
-            JObject result = (JObject)sender.SendersList();
+            Response result = (Response)sender.SendersList();
             Debug.WriteLine(result.ToString());
-            Assert.AreNotEqual("error", result["status"]);
+            Assert.AreNotEqual("error", result.status);
         }
         [TestMethod]
-        public void TestMandrillMailSend()
+        public void TestMandrillMailSendRecject()
         {
-            JObject result = (JObject)sender.SendMail(mail);
+            Response result = (Response)sender.SendMail(mail);
             Debug.WriteLine(result.ToString());
-            Assert.AreNotEqual("error", result["status"]);
+            Assert.AreEqual("recject", result.status);
+        }
+        [TestMethod]
+        public void TestApiKey()
+        {
+            Boolean result = sender.TestKey("Yt2RkGJrlFG6LD3BanmsWw");
+            Debug.WriteLine(result.ToString());
+            Assert.AreEqual(true, result);
         }
     }
 }

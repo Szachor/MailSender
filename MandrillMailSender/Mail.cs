@@ -6,21 +6,17 @@ using System.Threading.Tasks;
 
 namespace MailSender
 {
-    /// <summary>
-    /// 
-    /// </summary>
-
-
-    
-    public class Mail
+    public class Mail : MailInterface
     {
 
 
+        #region Properties
         private List<Address> _tos;
-        private List<Attachments>_attachments;
+        private List<Attachments> _attachments;
         private String _content;
         private String _subject;
         private bool html;
+        #endregion
 
         #region Properties
         public List<Address> to
@@ -28,10 +24,10 @@ namespace MailSender
             get { return this._tos; }
             set { this._tos = value; }
         }
-        public List<Address> attachments
+        public List<Attachments> attachments
         {
-            get { return this._tos; }
-            set { this._tos = value; }
+            get { return this._attachments; }
+            set { this._attachments = value; }
         }
         public string text
         {
@@ -44,6 +40,8 @@ namespace MailSender
             set { this._subject = value; }
         }
         #endregion
+
+        #region class Address
         public class Address
         {
             private string _email;
@@ -57,31 +55,28 @@ namespace MailSender
                 this._email = email;
             }
         }
+        #endregion
+
+        #region class Attachments
         public class Attachments
         {
-            
-        }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="to"></param>
-        /// <param name="_subject"></param>
-        /// <param name="_content"></param>
-        /// <param name="html"></param>
-        public Mail(String to, String subject, String content = "", bool html = false) : this(subject, content, html)
+        }
+        #endregion
+
+        #region constructors
+        public Mail(String to, String subject, String content = "", bool html = false)
         {
             _tos = new List<Address>();
             _attachments = new List<Attachments>();
             _tos.Add(new Address(to));
-        }
-
-        public Mail(String subject, String content = "", bool html = false)
-        {
             this._subject = subject;
             this._content = content;
             this.html = html;
         }
+        #endregion
+
+        #region methods
         public bool AddRecipient(String recipient)
         {
             return true;
@@ -90,5 +85,6 @@ namespace MailSender
         {
             return true;
         }
+        #endregion
     }
 }

@@ -14,9 +14,9 @@ namespace TestApp
         {
             string apikey = "F3oFPMyvxI2JQyEpIydqFw";
             MailSenderInterface m = new MandrillMailSenderClass(apikey);
-            m.TestKey();
+            m.ping();
             bool html = false;
-            Mail mm = new Mail("to", "content bla", html);
+            Mail mm = new Mail("to", "to", "content bla", html);
             m.SendMail(mm);
         }
     }
