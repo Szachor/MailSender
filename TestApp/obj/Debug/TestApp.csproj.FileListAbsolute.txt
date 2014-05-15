@@ -1,0 +1,1 @@
+C:\Users\Chrystian\Source\Repos\MailSender\TestApp\bin\Debug\TestApp.exe.config
