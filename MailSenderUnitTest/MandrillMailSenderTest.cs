@@ -1,12 +1,16 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MandrillMailSender;
-using MailSender;
-using Newtonsoft.Json.Linq;
-using System.Diagnostics;
-
+﻿
 namespace UnitTestForMandrillMailSender
 {
+    using System;
+    using System.Diagnostics;
+    using MailSender;
+    using MandrillMailSender;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Newtonsoft.Json.Linq;
+
+    /// <summary>
+    /// 
+    /// </summary>
     [TestClass]
     public class MandrillMailSenderTest
     {
@@ -39,7 +43,7 @@ namespace UnitTestForMandrillMailSender
         [TestMethod]
         public void TestApiKey()
         {
-            Boolean result = sender.TestKey("Yt2RkGJrlFG6LD3BanmsWw");
+            bool result = sender.TestKey("Yt2RkGJrlFG6LD3BanmsWw");
             Debug.WriteLine(result.ToString());
             Assert.AreEqual(true, result);
         }

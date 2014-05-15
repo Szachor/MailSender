@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MailSender;
-using Newtonsoft.Json.Linq;
-
+﻿
 namespace MandrillMailSender
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using MailSender;
+    using Newtonsoft.Json.Linq;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public class Response : ResponseInterface
     {
         #region fields
@@ -24,38 +28,38 @@ namespace MandrillMailSender
         #region Properties
         public JObject json
         {
-            get { return _json; }
+            get { return this._json; }
         }
 
         public string status
         {
-            get { return _status; }
-            set { _status = value; }
+            get { return this._status; }
+            set { this._status = value; }
         }
         public string name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return this._name; }
+            set { this._name = value; }
         }
         public string message
         {
-            get { return _message; }
-            set { _message = value; }
+            get { return this._message; }
+            set { this._message = value; }
         }
         public string reject_reason
         {
-            get { return _reject_reason; }
-            set { _reject_reason = value; }
+            get { return this._reject_reason; }
+            set { this._reject_reason = value; }
         }
         public string id
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return this._id; }
+            set { this._id = value; }
         }
         public string ping
         {
-            get { return _ping; }
-            set { _ping = value; }
+            get { return this._ping; }
+            set { this._ping = value; }
         }
 
         #endregion
@@ -66,19 +70,20 @@ namespace MandrillMailSender
         }
         public Response(JObject json)
         {
-            _json = json;
-            _status = json["response"]["status"].ToString();
-            _name = json["name"].ToString();
-            _message = json["message"].ToString();
-            _reject_reason = json["reject_reason"].ToString();
+            this._json = json;
+            this._status = json["response"]["status"].ToString();
+            this._name = json["name"].ToString();
+            this._message = json["message"].ToString();
+            this._reject_reason = json["reject_reason"].ToString();
         }
         #endregion
 
         #region Methods
         public string ToString()
         {
-            string s = "";
-            if (this._status != null){
+            string s = string.Empty;
+            if (this._status != null)
+            {
             s += "Status: ";
             s += this._status + '\n';
             }
@@ -97,9 +102,9 @@ namespace MandrillMailSender
                 s += "Reject_reason: ";
                 s += this._reject_reason + '\n';
             }
-            if (s.Length == 0 && json != null) 
+            if (s.Length == 0 && this.json != null) 
             {
-                return json.ToString();
+                return this.json.ToString();
             }
             return s;
         }
