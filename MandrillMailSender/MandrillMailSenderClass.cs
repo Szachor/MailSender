@@ -17,11 +17,23 @@ namespace MandrillMailSender
     /// <summary>
     /// 
     /// </summary>
-    public class MandrillMailSenderClass : MailSenderInterface
+    public class MandrillMailSenderClass : IMailSender
     {
         #region Fields
-        static public string url;
+        public static string url;
         private string apikey;
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// konstruktor
+        /// </summary>
+        /// <param name="apikey">Api key</param>
+        public MandrillMailSenderClass(string apikey)
+        {
+            this.apikey = apikey;
+            url = "https://mandrillapp.com/api/1.0/";
+        }
         #endregion
 
         #region Properties
@@ -32,25 +44,13 @@ namespace MandrillMailSender
         }
         #endregion
 
-        #region Constructors
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="apikey"></param>
-        public MandrillMailSenderClass(string apikey)
-        {
-            this.apikey = apikey;
-            url = "https://mandrillapp.com/api/1.0/";
-        }
-        #endregion
-
         #region methods
         /// <summary>
         /// 
         /// </summary>
         /// <param name="mail"></param>
         /// <returns></returns>
-        public ResponseInterface SendMail(MailInterface mail) 
+        public IResponse SendMail(IMail mail) 
         {
             RestRequest request = new RestRequest("messages/send.json", Method.POST);
             request.RequestFormat = DataFormat.Json;
@@ -87,7 +87,7 @@ namespace MandrillMailSender
         /// 
         /// </summary>
         /// <returns></returns>
-        public ResponseInterface SendersList()
+        public IResponse SendersList()
         {
             RestRequest request = new RestRequest("senders/list.json", Method.POST);
             request.RequestFormat = DataFormat.Json;
@@ -99,7 +99,7 @@ namespace MandrillMailSender
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        private static ResponseInterface GetResponse(RestRequest request)
+        private static IResponse GetResponse(RestRequest request)
         {
             RestClient client = new RestClient(url);
             IRestResponse response = client.Execute(request);
@@ -108,9 +108,9 @@ namespace MandrillMailSender
                 response.Content = '[' + response.Content + ']';
             }
             // response.Content = "{\"response\":" + response.Content + '}';
-            // JObject json = JObject.Parse(response.Content);
+            // JObject Json = JObject.Parse(response.Content);
             List<Response> r = JsonConvert.DeserializeObject<List<Response>>(response.Content);
-            // return new Response(json);
+            // return new Response(Json);
             return r.Last();
         }
         #endregion

@@ -20,9 +20,9 @@ namespace UnitTestForMandrillMailSender
         private static string apiKey;
 
         [ClassInitialize()]
-        public static void iterationClassInitialize(TestContext context)
+        public static void IterationClassInitialize(TestContext context)
         {
-            mail = new Mail("testmailsender4@gmail.com", "Test mail", "Test body", false);
+            mail = new Mail("testmailsender4@gmail.com", "testmailsender4@gmail.com", "Test mail", "Test body", false);
             apiKey = "Yt2RkGJrlFG6LD3BanmsWw";
             sender = new MandrillMailSenderClass(apiKey);
         }

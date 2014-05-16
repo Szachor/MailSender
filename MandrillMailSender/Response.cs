@@ -12,7 +12,7 @@ namespace MandrillMailSender
     /// <summary>
     /// 
     /// </summary>
-    public class Response : ResponseInterface
+    public class Response : IResponse
     {
         #region fields
         private JObject _json;
@@ -25,8 +25,22 @@ namespace MandrillMailSender
         private string _ping;
         #endregion
 
+        #region Constructors
+        public Response()
+        {
+        }
+        public Response(JObject json)
+        {
+            this._json = json;
+            this._status = json["response"]["status"].ToString();
+            this._name = json["name"].ToString();
+            this._message = json["message"].ToString();
+            this._reject_reason = json["reject_reason"].ToString();
+        }
+        #endregion
+
         #region Properties
-        public JObject json
+        public JObject Json
         {
             get { return this._json; }
         }
@@ -46,6 +60,9 @@ namespace MandrillMailSender
             get { return this._message; }
             set { this._message = value; }
         }
+        /// <summary>
+        /// reject reason
+        /// </summary>
         public string reject_reason
         {
             get { return this._reject_reason; }
@@ -63,21 +80,7 @@ namespace MandrillMailSender
         }
 
         #endregion
-
-        #region Constructors
-        public Response()
-        {
-        }
-        public Response(JObject json)
-        {
-            this._json = json;
-            this._status = json["response"]["status"].ToString();
-            this._name = json["name"].ToString();
-            this._message = json["message"].ToString();
-            this._reject_reason = json["reject_reason"].ToString();
-        }
-        #endregion
-
+        
         #region Methods
         public string ToString()
         {
@@ -102,9 +105,9 @@ namespace MandrillMailSender
                 s += "Reject_reason: ";
                 s += this._reject_reason + '\n';
             }
-            if (s.Length == 0 && this.json != null) 
+            if (s.Length == 0 && this.Json != null) 
             {
-                return this.json.ToString();
+                return this.Json.ToString();
             }
             return s;
         }

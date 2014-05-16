@@ -9,7 +9,7 @@ namespace MailSender
     /// <summary>
     /// 
     /// </summary>
-    public interface ResponseInterface
+    public interface IResponse
     {
         string status { get; set; }
     }

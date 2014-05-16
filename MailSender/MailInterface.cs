@@ -10,7 +10,7 @@ namespace MailSender
     /// <summary>
     /// 
     /// </summary>
-    public interface MailInterface
+    public interface IMail
     {
         bool AddRecipient(string recipient);
     }

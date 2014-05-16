@@ -7,13 +7,13 @@ namespace MailSender
     using System.Text;
     using System.Threading.Tasks;
 
-    public interface MailSenderInterface
+    public interface IMailSender
     {
         #region methods
-        ResponseInterface SendMail(MailInterface mail);
+        IResponse SendMail(IMail mail);
         bool Ping();
         bool TestKey(string apikey);
-        ResponseInterface SendersList();
+        IResponse SendersList();
         #endregion
 
     }

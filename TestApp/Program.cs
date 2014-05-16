@@ -12,15 +12,15 @@ namespace TestApp
     /// <summary>
     /// 
     /// </summary>
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             string apikey = "F3oFPMyvxI2JQyEpIydqFw";
-            MailSenderInterface m = new MandrillMailSenderClass(apikey);
+            IMailSender m = new MandrillMailSenderClass(apikey);
             m.Ping();
             bool html = false;
-            Mail mm = new Mail("to", "to", "content bla", html);
+            Mail mm = new Mail("from", "to", "subject", "content bla", html);
             m.SendMail(mm);
         }
     }
